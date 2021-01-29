@@ -9,6 +9,7 @@ node('master')
  {
  sh "${mavenHome}/bin/mvn clean package"
  }
+ /*
   stage('ExecuteSonarQube')
  {
  sh "${mavenHome}/bin/mvn sonar:sonar"
@@ -25,4 +26,5 @@ mail bcc: '', body: '''build over
 
 Thanks and Regards''', cc: '', from: '', replyTo: '', subject: 'build over', to: 'sree.gdv@gmail.com'
 }
+*/
 }
