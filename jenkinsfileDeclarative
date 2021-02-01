@@ -1,0 +1,63 @@
+pipeline {
+agent {
+    label 'node1'
+}
+tools
+{
+maven 'maven3.6.3'
+}
+triggers
+{
+    pollSCM('* * * * *')
+}
+options
+{
+    timestamps()
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5'))
+}
+ stages 
+ {
+    stage('CheckoutCode')
+    {
+  steps{
+  git branch: 'development', credentialsId: '0292af42-1bf4-4930-9aff-4758ee6814d4', url: 'https://github.com/devsree5/maven-web-application.git'
+  }
+    }
+  stage('Build')
+  {
+  steps{
+  sh "mvn clean package"
+  }
+  }
+  stage('SonarQubeReport')
+  {
+      steps{
+        sh "mvn sonar:sonar" 
+      }
+  }
+ stage('DeployInTomcat')
+  {
+  steps{
+  sshagent(['b0dfa82f-3d54-4a14-a524-784562e3ddda']) {
+  sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.233.127.137:/opt/apache-tomcat-9.0.41/webapps/"
+}
+ 
+  }
+  }
+  }
+    post
+  {
+  success {
+  mail bcc: '', body: '''build success
+
+from srinu
+''', cc: '', from: '', replyTo: '', subject: 'Build Sucess', to: 'sree.gdv@gmail.com'
+}
+
+ failure {
+ mail bcc: '', body: '''build Fail 
+from srinu
+''', cc: '', from: '', replyTo: '', subject: 'Build Fail', to: 'sree.gdv@gmail.com'
+}
+}
+}
