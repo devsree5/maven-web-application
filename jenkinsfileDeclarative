@@ -46,8 +46,7 @@ options
   }
   }
   }
-  }
-    post
+  post
   {
   success {
   mail bcc: '', body: '''build success
@@ -60,6 +59,7 @@ from srinu
  mail bcc: '', body: '''build Fail 
 from srinu
 ''', cc: '', from: '', replyTo: '', subject: 'Build Fail', to: 'sree.gdv@gmail.com'
+}
 }
 }
 }
