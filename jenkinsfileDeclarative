@@ -23,8 +23,7 @@ options
   git branch: 'development', credentialsId: '0292af42-1bf4-4930-9aff-4758ee6814d4', url: 'https://github.com/devsree5/maven-web-application.git'
   }
     }
-    parallel{
-  stage('Build')
+    stage('Build')
   {
   steps{
   sh "mvn clean package"
@@ -59,7 +58,6 @@ from srinu
  mail bcc: '', body: '''build Fail 
 from srinu
 ''', cc: '', from: '', replyTo: '', subject: 'Build Fail', to: 'sree.gdv@gmail.com'
-}
 }
 }
 }
