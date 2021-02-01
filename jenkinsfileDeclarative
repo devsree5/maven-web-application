@@ -23,7 +23,7 @@ options
   git branch: 'development', credentialsId: '0292af42-1bf4-4930-9aff-4758ee6814d4', url: 'https://github.com/devsree5/maven-web-application.git'
   }
     }
-    parllel{
+    parallel{
   stage('Build')
   {
   steps{
