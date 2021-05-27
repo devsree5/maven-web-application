@@ -94,13 +94,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>mttkart Releases Nexus Repository</name>
-	      <url>http://18.117.112.110:8081/repository/sreekart-release//</url>
+	      <url>http://18.117.112.110:8081/repository/maven-releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>mttkart Nexus Repository </name>
-	      <url>http://18.117.112.110:8081/repository/sreekart-snapshot/</url>
+	      <url>http://18.117.112.110:8081/repository/maven-snapshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
