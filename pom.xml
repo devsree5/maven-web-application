@@ -93,13 +93,13 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>maven-web-app Releases Nexus Repository</name>
+	      <name>mavenwebapp Releases Nexus Repository</name>
 	      <url>http://18.117.112.110:8081/repository/declarative-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>maven-web-app Nexus Repository </name>
+	      <name>mavenapp Nexus Repository </name>
 	      <url>http://18.117.112.110:8081/repository/declarative-snapshot/</url>
 	    </snapshotRepository>
 	    
